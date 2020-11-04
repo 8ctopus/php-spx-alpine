@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   web:
-    image: php-spx-alpine:dev
+    image: 8ct8pus/php-spx-alpine:latest
     container_name: php-spx
     ports:
       - 80:80
