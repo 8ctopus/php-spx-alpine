@@ -1,15 +1,19 @@
 ## project description
 
-A [php-spx 0.4.10](https://github.com/NoiseByNorthwest/php-spx) docker alpine based image for testing purposes.
+A [php-spx](https://github.com/NoiseByNorthwest/php-spx) docker alpine based image for testing purposes.
 
-The docker image size is xx MB.
+The docker image size is 361 MB.
+
+- php SPX v0.4.10
 
 ## start container
 
 ```bash
+# start container
 docker run -p 80:80 -p 443:443 --name php-spx 8ct8pus/php-spx-alpine
 + CTRL-Z to detach
 
+# stop and delete container
 docker rm php-spx
 ```
 or
@@ -19,13 +23,13 @@ docker-compose up
 
 ## how to use
 
-- Open `http://localhost/?SPX_KEY=dev&SPX_UI_URI=/` in the browser to access the SPX control panel.
+- Access the SPX control panel `http://localhost/?SPX_KEY=dev&SPX_UI_URI=/`.
 
-- Check `Whether to enable SPX profiler for your current browser session. No performance impact for other clients.`
+- Check checkbox `Whether to enable SPX profiler for your current browser session. No performance impact for other clients.`
 
-- Open in a new tab `http://localhost/`.
+- Open script to profile in a new tab `http://localhost/index.php`.
 
-- Refresh the SPX control panel and a report will be available at the bottom of the screen. Click the report to open.
+- Refresh the SPX control panel tab and the report will be available at the bottom of the screen. Click it to show the report in a new tab.
 
 ## get console to container
 
