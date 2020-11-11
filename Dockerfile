@@ -26,6 +26,8 @@ RUN git checkout tags/v0.4.10
 RUN phpize
 RUN ./configure
 RUN make
+
+# install php-spx
 RUN make install
 
 # add spx to php config
