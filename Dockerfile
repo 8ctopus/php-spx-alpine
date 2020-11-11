@@ -32,8 +32,8 @@ RUN make install
 ADD --chown=root:root include/spx.ini /etc/php7/conf.d/spx.ini
 
 # add source files to site
-ADD --chown=root:root src/public/index.php /var/www/html/public/index.php
-ADD --chown=root:root src/public/phpinfo.php /var/www/html/public/phpinfo.php
+ADD --chown=root:root html/public/index.php /var/www/html/public/index.php
+ADD --chown=root:root html/public/phpinfo.php /var/www/html/public/phpinfo.php
 
 # set workdir
 WORKDIR /var/www/html/public
