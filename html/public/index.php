@@ -1,3 +1,4 @@
+<a href="/?SPX_KEY=dev&SPX_UI_URI=/" target="_blank">SPX control panel</a>
 <?php
 
 echo('<pre>');
