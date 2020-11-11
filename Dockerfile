@@ -16,6 +16,7 @@ RUN apk add git
 WORKDIR /
 RUN git clone https://github.com/NoiseByNorthwest/php-spx.git
 
+# set workdir
 WORKDIR /php-spx
 
 # checkout release
@@ -30,8 +31,9 @@ RUN make install
 # add spx to php config
 ADD --chown=root:root include/spx.ini /etc/php7/conf.d/spx.ini
 
-# add source files
-ADD --chown=root:root src/public/index.php /var/www/site/public/index.php
-ADD --chown=root:root src/public/phpinfo.php /var/www/site/public/phpinfo.php
+# add source files to site
+ADD --chown=root:root src/public/index.php /var/www/html/public/index.php
+ADD --chown=root:root src/public/phpinfo.php /var/www/html/public/phpinfo.php
 
-WORKDIR /var/www/site/public
+# set workdir
+WORKDIR /var/www/html/public
