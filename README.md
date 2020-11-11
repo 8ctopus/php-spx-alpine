@@ -9,19 +9,26 @@ The docker image size is 361 MB.
 ## start container
 
 ```bash
+# start container
 docker-compose up
+CTRL-Z to detach
+
+# stop and delete container
+docker-compose down
 ```
 or
 ```bash
 # start container
-docker run -p 80:80 -p 443:443 --name php-spx 8ct8pus/php-spx-alpine
-+ CTRL-Z to detach
+docker run -p 80:80 -p 443:443 --name php-spx 8ct8pus/php-spx-alpine:latest
+CTRL-Z to detach
 
 # stop and delete container
-docker rm php-spx
+docker rm -f php-spx
 ```
 
 ## how to use
+
+- Start docker container
 
 - Access the SPX control panel `http://localhost/?SPX_KEY=dev&SPX_UI_URI=/`
 
@@ -42,4 +49,3 @@ docker exec -it php-spx zsh
 ```bash
 docker build -t php-spx-alpine:dev .
 ```
-
