@@ -2,10 +2,20 @@
 
 A [php-spx](https://github.com/NoiseByNorthwest/php-spx) docker alpine based image for testing purposes.
 
-The docker image size is 361 MB.
+The docker image size is 55 MB.
 
-- php SPX v0.4.10
+- Apache 2.4.46 with SSL
+- php-fpm 7.4.12
+- Xdebug 2.9.8 - debugger and profiler
+- [SPX prolifer 0.4.10](https://github.com/NoiseByNorthwest/php-spx)
+- composer 2.0.6
+- zsh
 
+## build docker image
+
+```bash
+docker build -t php-spx-alpine:dev .
+```
 ## start container
 
 ```bash
@@ -19,7 +29,7 @@ docker-compose down
 or
 ```bash
 # start container
-docker run -p 80:80 -p 443:443 --name php-spx 8ct8pus/php-spx-alpine:latest
+docker run -p 80:80 -p 443:443 --name php-spx php-spx-alpine:dev
 CTRL-Z to detach
 
 # stop and delete container
@@ -42,10 +52,4 @@ docker rm -f php-spx
 
 ```bash
 docker exec -it php-spx zsh
-```
-
-## build docker image
-
-```bash
-docker build -t php-spx-alpine:dev .
 ```

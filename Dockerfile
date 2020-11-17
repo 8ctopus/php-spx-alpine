@@ -1,4 +1,4 @@
-FROM 8ct8pus/apache-php-fpm-alpine:latest
+FROM alpine:20200917 AS build
 
 # add c build tools
 RUN apk add build-base
@@ -13,7 +13,6 @@ RUN apk add php7-dev
 RUN apk add git
 
 # clone php-spx
-WORKDIR /
 RUN git clone https://github.com/NoiseByNorthwest/php-spx.git
 
 # set workdir
@@ -27,8 +26,11 @@ RUN phpize
 RUN ./configure
 RUN make
 
-# install php-spx
-RUN make install
+# start clean image
+FROM 8ct8pus/apache-php-fpm-alpine:latest
+
+# copy spx module from ubuntu image to clean image
+COPY --from=build /php-spx/modules/spx.so /usr/lib/php7/modules/spx.so
 
 # add spx to php config
 ADD --chown=root:root include/spx.ini /etc/php7/conf.d/spx.ini
